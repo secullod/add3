@@ -1,0 +1,26 @@
+.logins {
+  width: 100%;
+  margin-right: 10px;
+
+  & .login-header {
+    text-align: center;
+    border: solid 2px black;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+  }
+}
+
+.login {
+  margin: 7px;
+  display: flex;
+  flex-direction: column;
+  border: solid 2px black;
+  border-radius: 5px;
+  padding: 7px;
+
+  & .time {
+    margin-bottom: 5px;
+  }
+}

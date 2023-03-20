@@ -1,0 +1,28 @@
+#metamask {
+  margin: 10px;
+  border: solid 1px #e4761b;
+  color: #e4761b;
+  font-weight: bold;
+  box-shadow: rgba(157, 75, 19, 0.9) 0px 0px 10px 0px;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#metamask:hover {
+  background: rgba(228, 118, 27, 0.5);
+  cursor: pointer;
+}
+
+#metamask:active {
+  transform: translateY(1px) translateX(1px);
+}
+
+#metamask-image {
+  width: 1em;
+  vertical-align: middle;
+  margin-right: 5px;
+}

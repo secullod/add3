@@ -1,0 +1,25 @@
+.mints {
+  width: 100%;
+
+  & .mint-header {
+    text-align: center;
+    border: solid 2px black;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+  }
+}
+
+.mint {
+  margin: 7px;
+  display: flex;
+  flex-direction: column;
+  border: solid 2px black;
+  border-radius: 5px;
+  padding: 7px;
+
+  & .amount, .address {
+    margin-bottom: 5px;
+  }
+}

@@ -18,7 +18,7 @@ export const LoginsList = ({logins}: Props) =>
             </div>
             <div className="balance">
                 <strong>Balance: </strong>
-                {login.balance} EKT
+                {login.balance} ETK
             </div>
         </div>)}
 </Col>

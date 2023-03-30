@@ -4,12 +4,13 @@ import React, {useEffect, useState} from "react";
 import {Logins, Mints, User} from "./types";
 import {createOrUpdateUser, getUserData, postMintToUserAccount} from "./requests";
 import {getTestTokenContract, getTestTokenContractWithSigner} from "./contractInteraction";
-import {getConnectedAccounts} from "./metaMask";
+import {checkOnGoerli, getConnectedAccounts} from "./metaMask";
 import {LoginsList, MetaMaskButton, MintAlert, MintInput, MintsList, TokenInfo} from "./components";
 
 const App = () => {
     const [userBalance, setUserBalance] = useState(0);
     const [userAddress, setUserAddress] = useState('');
+    const [onGoerli, setOnGoerli] = useState(false);
     const [toAddress, setToAddress] = useState('');
     const [tokenName, setTokenName] = useState('');
     const [tokenSymbol, setTokenSymbol] = useState('');
@@ -42,6 +43,7 @@ const App = () => {
         }
         let address = addresses[0]
         let testTokenContract = getTestTokenContract()
+        setOnGoerli(checkOnGoerli())
         setUserAddress(address)
         setTokenSymbol(await testTokenContract.symbol())
         setTokenName(await testTokenContract.name())
@@ -67,12 +69,16 @@ const App = () => {
 
         if (!(window as any).ethereum) return
 
+        getLogin();
+
         (window as any).ethereum.on('accountsChanged', newLogin);
         (window as any).ethereum.on('connect', getLogin);
+        (window as any).ethereum.on('chainChanged', newLogin);
 
         return () => {
             (window as any).ethereum.removeListener('accountsChanged', newLogin);
             (window as any).ethereum.removeListener('connect', getLogin);
+            (window as any).ethereum.removeListener('chainChanged', newLogin);
         }
     }, []);
 
@@ -80,7 +86,7 @@ const App = () => {
         <>
             <MintAlert mintAlert={mintAlert} toAddress={toAddress} />
             <Container>
-                <MetaMaskButton userAddress={userAddress} />
+                <MetaMaskButton userAddress={userAddress} onGoerli={onGoerli}/>
                 <Card>
                     <Card.Body>
                         <Row>

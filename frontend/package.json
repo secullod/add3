@@ -23,7 +23,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "rm -rf src/contractTypes && typechain --target ethers-v5 --out-dir src/contractTypes './src/TestToken.json' && react-scripts start",
+    "start": "rm -rf src/contractTypes && typechain --target ethers-v5 --out-dir src/contractTypes './src/TestToken.json' && PORT=3316 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

@@ -10,7 +10,7 @@ Content-Type: application/json
 GET http://localhost:8000/user/1
 
 ### Post a mint transaction
-POST http://localhost:8000/mint/1
+POST http://localhost:8000/user/mint/1
 Content-Type: application/json
 
 {

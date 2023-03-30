@@ -5,7 +5,7 @@ export const createOrUpdateUser = async (address: string, balance: number): Prom
     try {
         const {data} = await instance.post(`user/${address}`, {balance})
 
-        return (data.data as User)
+        return (data as User)
     } catch (error) {
         console.log('error:', error);
         return null

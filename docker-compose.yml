@@ -4,7 +4,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "3000:3000"
+      - "3316:3316"
     container_name: frontend-docker
     restart: always
 

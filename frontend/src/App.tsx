@@ -63,6 +63,7 @@ const App = () => {
         let data = await postMintToUserAccount(userAddress, toAddress)
         if (data) setMints(data.mintedAmounts)
         hideMintAlert()
+        getLogin()
     }
 
     useEffect(() => {
